@@ -1,9 +1,9 @@
 import { MAX_AUTH_UPLOAD_IMAGE, videoWebcamConstraints } from '@/config/app'
 import {
+  uploadTrainKeyboardImages,
   detectImageFace,
   trainModel,
-  uploadTrainImages,
-} from '@/fetchers/auth/images'
+} from '@/fetchers/game/keyboards'
 import { sleep } from '@/utils/app'
 import { useEffect, useRef, useState } from 'react'
 import { useMutation } from 'react-query'
@@ -15,14 +15,15 @@ type ImageTest = {
   userId: number
 }
 
-export const AuthCamera = () => {
+export const KeyboardCamera = () => {
   const [images, setImages] = useState<Array<string | null>>([])
-  const [userId, setUserId] = useState<number>(-1)
+  const [userId, setUserId] = useState<number>(1)
+  const [keyboard, setKeyboard] = useState<string>('top')
   const webCamRef = useRef<Webcam | null>(null)
 
   const mutationDetectFace = useMutation<void, any, Pick<ImageTest, 'image'>>({
     mutationFn: async (data) =>
-      detectImageFace(data.image)
+      detectImageFace(data.image, userId)
         .then((response) => response.data)
         .then((response) => {
           alert(`Usuário ${response.data} identificado`)
@@ -33,13 +34,13 @@ export const AuthCamera = () => {
   })
 
   const mutationTrainModel = useMutation({
-    mutationFn: trainModel,
+    mutationFn: () => trainModel(userId),
   })
 
   const handleSendImagesForTrain = async () => {
     images.forEach(async (image) => {
       if (!image) return
-      await uploadTrainImages(image, userId)
+      await uploadTrainKeyboardImages(image, keyboard, userId)
       await sleep(500)
     })
   }
@@ -111,6 +112,12 @@ export const AuthCamera = () => {
         type="number"
         value={userId}
         onChange={(e) => setUserId(Number(e.target.value))}
+      />
+      <input
+        name="keyboard"
+        type="text"
+        value={keyboard}
+        onChange={(e) => setKeyboard(e.target.value)}
       />
       <button
         className="border border-gray-800 p-3"
