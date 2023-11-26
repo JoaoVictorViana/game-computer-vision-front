@@ -53,7 +53,7 @@ export const useLogin = () => {
           }
 
           setUserDetected(true)
-          toast(`Usuário ${response.data} identificado`)
+          toast(`Bem vindo!`)
           router.push('/')
         })
         .catch(() => {

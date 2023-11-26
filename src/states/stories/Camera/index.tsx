@@ -4,7 +4,7 @@ import Webcam from 'react-webcam'
 import { create } from 'zustand'
 
 type CameraStory = {
-  images: Array<string | null>
+  images: Array<string>
   visible: boolean
   cameraConstrains: MediaTrackConstraints
   cameraRef: Webcam | null
@@ -14,6 +14,7 @@ type CameraStory = {
   setCameraConstrains: (config: MediaTrackConstraints) => void
   addImage: (image: string) => void
   removeImage: (index: number) => void
+  resetImages: () => void
 }
 
 export const useCamera = create<CameraStory>((set) => ({
@@ -41,4 +42,5 @@ export const useCamera = create<CameraStory>((set) => ({
     })),
   showCamera: () => set((prev) => ({ ...prev, visible: true })),
   hideCamera: () => set((prev) => ({ ...prev, visible: false })),
+  resetImages: () => set((prev) => ({ ...prev, images: [] })),
 }))
