@@ -1,3 +1,4 @@
+import { Camera } from '@/components/Core/Camera'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
@@ -16,9 +17,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="w-screen h-screen flex">
+        <div className="w-screen h-screen flex flex-col lg:flex-row">
           <div className="w-full lg:w-[50vw]">{children}</div>
-          <div className="w-full h-full hidden lg:block bg-primary-700" />
+          <div className="w-full h-full flex items-center justify-center bg-primary-700">
+            <Camera />
+          </div>
         </div>
       </body>
     </html>

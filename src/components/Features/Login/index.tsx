@@ -4,10 +4,14 @@ import { Button } from '@/components/Core/Button'
 import { Form } from '@/components/Core/Form'
 import { Input } from '@/components/Core/Form/Input'
 import loginScheam from '@/schemas/login'
+import { useCamera } from '@/states/stories/Camera'
 import { useLogin } from './hook'
 
 export const LoginForm = () => {
+  const { visible: cameraVisible } = useCamera()
   const { handleSubmit } = useLogin()
+
+  if (cameraVisible) return null
 
   return (
     <Form

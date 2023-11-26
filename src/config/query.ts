@@ -8,5 +8,8 @@ export const clientQuery = new QueryClient({
       refetchIntervalInBackground: false,
       refetchOnWindowFocus: false,
     },
+    mutations: {
+      retry: false,
+    },
   },
 })

@@ -9,12 +9,6 @@ import { useEffect, useRef, useState } from 'react'
 import { useMutation } from 'react-query'
 import Webcam from 'react-webcam'
 
-type ImageTest = {
-  image: string
-  imageId: number
-  userId: number
-}
-
 export const AuthCamera = () => {
   const [images, setImages] = useState<Array<string | null>>([])
   const [userId, setUserId] = useState<number>(-1)

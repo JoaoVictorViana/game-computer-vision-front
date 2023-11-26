@@ -41,7 +41,7 @@ export const detectImageFace = (
     `image-${new Date().toISOString()}.jpg`
   )
 
-  return axiosIa.post('/detect', formData, {
+  return axiosIa.post('/detect/face', formData, {
     headers: {
       accept: 'application/json',
       'Content-Type': `multipart/form-data`,
