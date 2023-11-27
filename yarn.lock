@@ -3708,6 +3708,15 @@ p-locate@^5.0.0:
   dependencies:
     p-limit "^3.0.2"
 
+pacman-react@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/pacman-react/-/pacman-react-0.0.2.tgz#4cea869eb1382d5c540e43f79edf539ae13ede65"
+  integrity sha512-dfH7dRJp0LmzmoKdUZlUooD9l+hmwC2vhoDfUwpy1jyqZGj+8Gx4wgDhD1p6Nk9yqm1tTAV8XgHy4FeSiitPSw==
+  dependencies:
+    classnames "^2.2.5"
+    react "^16.3.2"
+    react-dom "^16.3.2"
+
 parent-module@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/parent-module/-/parent-module-1.0.1.tgz#691d2709e78c79fae3a156622452d00762caaaa2"
@@ -3869,7 +3878,7 @@ queue-microtask@^1.2.2:
   resolved "https://registry.yarnpkg.com/queue-microtask/-/queue-microtask-1.2.3.tgz#4929228bbc724dfac43e0efb058caf7b6cfb6243"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
 
-react-dom@^16.9.0:
+react-dom@^16.3.2, react-dom@^16.9.0:
   version "16.14.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.14.0.tgz#7ad838ec29a777fb3c75c3a190f661cf92ab8b89"
   integrity sha512-1gCeQXDLoIqMgqD3IO2Ah9bnf0w9kzhwN5q4FGnHZ67hBm9yePzB5JJAIQCc8x3pFnNlwFq4RidZggNAAkzWWw==
@@ -3915,6 +3924,11 @@ react-query@^3.39.3:
     broadcast-channel "^3.4.1"
     match-sorter "^6.0.2"
 
+react-simple-snake@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/react-simple-snake/-/react-simple-snake-0.2.2.tgz#171f39c3003c1c86c2e2a2f46c5f2c4007da185e"
+  integrity sha512-MP5s3IDs6+9S0GrxBYi0oGjvm2/vFMq7GmYhVbjEhRjJUlH3kAxoyOBLTfFpGq3+Fkx2OUSFBbR3l8n1iG5qkg==
+
 react-toastify@^9.1.3:
   version "9.1.3"
   resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-9.1.3.tgz#1e798d260d606f50e0fab5ee31daaae1d628c5ff"
@@ -3927,7 +3941,7 @@ react-webcam@*, react-webcam@^7.2.0:
   resolved "https://registry.yarnpkg.com/react-webcam/-/react-webcam-7.2.0.tgz#64141c4c7bdd3e956620500187fa3fcc77e1fd49"
   integrity sha512-xkrzYPqa1ag2DP+2Q/kLKBmCIfEx49bVdgCCCcZf88oF+0NPEbkwYk3/s/C7Zy0mhM8k+hpdNkBLzxg8H0aWcg==
 
-react@^16.9.0:
+react@^16.3.2, react@^16.9.0:
   version "16.14.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.14.0.tgz#94d776ddd0aaa37da3eda8fc5b6b18a4c9a3114d"
   integrity sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g==

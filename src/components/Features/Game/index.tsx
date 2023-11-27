@@ -4,12 +4,12 @@ import { User } from '@/types/api'
 import { FC, useEffect, useState } from 'react'
 import { Camera } from '@/components/Core/Camera'
 import { GameCam } from '@/components/Features/GameCam'
-import Pacman from 'react-pacman'
 import { useRouter } from 'next/navigation'
 import { useAtom } from 'jotai'
 import { userAtom } from '@/states/atoms/user'
 import { useCamera } from '@/states/stories/Camera'
 import { Button } from '@/components/Core/Button'
+import Snake from 'react-simple-snake'
 
 export const Game: FC<{ user: User }> = ({ user }) => {
   const [, setUser] = useAtom(userAtom)
@@ -42,7 +42,9 @@ export const Game: FC<{ user: User }> = ({ user }) => {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-primary-800">
       <div className="flex gap-10">
-        <Pacman key={keyGame} />
+        <div className="w-[800px]">
+          <Snake percentageWidth={60} startSnakeSize={6} key={keyGame} />
+        </div>
         <Camera />
       </div>
       <Button onClick={handleReset}>Resetar</Button>

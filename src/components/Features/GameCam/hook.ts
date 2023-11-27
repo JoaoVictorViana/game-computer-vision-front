@@ -13,6 +13,13 @@ type ImageDetect = {
   image: string
 }
 
+const keyboardMapping: Record<Keyboard, number> = {
+  ArrowDown: 40,
+  ArrowUp: 38,
+  ArrowRight: 39,
+  ArrowLeft: 37,
+}
+
 export const useGameCam = () => {
   const { cameraRef, visible: cameraVisible } = useCamera()
   const [keyboad, setKeyboard] = useState<Keyboard | ''>('')
@@ -24,7 +31,9 @@ export const useGameCam = () => {
 
       detectKeyboard(data.image, user.id).then((res) => {
         setKeyboard(res.data)
-        window.dispatchEvent(new KeyboardEvent('keydown', { key: res.data }))
+        window.dispatchEvent(
+          new KeyboardEvent('keydown', { keyCode: keyboardMapping[res.data] })
+        )
       })
     },
   })
