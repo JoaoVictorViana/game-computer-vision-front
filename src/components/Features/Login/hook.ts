@@ -55,6 +55,7 @@ export const useLogin = () => {
           setUserDetected(true)
           toast(`Bem vindo!`)
           router.push('/')
+          hideCamera()
         })
         .catch(() => {
           setUserDetected(false)

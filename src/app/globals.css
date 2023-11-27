@@ -2,3 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@layer components {
+  .arrow {
+    @apply hover:fill-white hover:bg-primary-700 rounded-lg cursor-pointer;
+  }
+}

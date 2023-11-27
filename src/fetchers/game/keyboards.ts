@@ -1,15 +1,16 @@
 import { axiosIa } from '@/config/app'
+import { Keyboard } from '@/types/app'
 import { base64toBlob } from '@/utils/file'
 import { AxiosResponse } from 'axios'
 
-export type IAResponse = {
-  data: any
+export type IAResponse<T = any> = {
+  data: T
   message: string
 }
 
 export const uploadTrainKeyboardImages = (
   image: string,
-  keyboard: string,
+  keyboard: Keyboard,
   userId: number
 ): Promise<AxiosResponse<IAResponse>> => {
   const formData = new FormData()
@@ -41,10 +42,10 @@ export const trainModel = (userId: number) =>
     }
   )
 
-export const detectImageFace = (
+export const detectKeyboard = (
   image: string,
   userId: number
-): Promise<AxiosResponse<IAResponse>> => {
+): Promise<IAResponse<Keyboard>> => {
   const formData = new FormData()
 
   formData.append(
@@ -54,10 +55,12 @@ export const detectImageFace = (
   )
   formData.append('userId', userId.toString())
 
-  return axiosIa.post('/detect/keyboard', formData, {
-    headers: {
-      accept: 'application/json',
-      'Content-Type': `multipart/form-data`,
-    },
-  })
+  return axiosIa
+    .post('/detect/keyboard', formData, {
+      headers: {
+        accept: 'application/json',
+        'Content-Type': `multipart/form-data`,
+      },
+    })
+    .then((res) => res.data)
 }
