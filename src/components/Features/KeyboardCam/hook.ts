@@ -74,7 +74,7 @@ export const useKeyboardMapping = () => {
     if (!user?.id) return
 
     await trainModel(user.id)
-    router.push('/')
+    router.push('/login')
   }
 
   useEffect(() => {
