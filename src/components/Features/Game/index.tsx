@@ -1,34 +1,19 @@
 'use client'
 
-import { User } from '@/types/api'
 import { FC, useEffect, useState } from 'react'
 import { Camera } from '@/components/Core/Camera'
 import { GameCam } from '@/components/Features/GameCam'
-import { useRouter } from 'next/navigation'
-import { useAtom } from 'jotai'
-import { userAtom } from '@/states/atoms/user'
 import { useCamera } from '@/states/stories/Camera'
 import { Button } from '@/components/Core/Button'
 import Snake from 'react-simple-snake'
 
-export const Game: FC<{ user: User }> = ({ user }) => {
-  const [, setUser] = useAtom(userAtom)
+export const Game: FC = () => {
   const [keyGame, setKeyGame] = useState(Math.random())
   const { setCameraConstrains, showCamera } = useCamera()
-  const router = useRouter()
 
   const handleReset = () => {
     setKeyGame(Math.random())
   }
-
-  useEffect(() => {
-    if (!user) {
-      router.push('/login')
-      return
-    }
-
-    setUser(user)
-  }, [user])
 
   useEffect(() => {
     setCameraConstrains({

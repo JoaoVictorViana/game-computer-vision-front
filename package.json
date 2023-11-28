@@ -30,6 +30,7 @@
     "zustand": "^4.4.6"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.23.3",
     "@next/eslint-plugin-next": "^14.0.2",
     "@types/node": "^20",
     "@types/react": "^18",
